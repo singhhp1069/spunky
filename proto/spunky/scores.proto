@@ -1,0 +1,11 @@
+syntax = "proto3";
+package singhp1069.spunky.spunky;
+
+option go_package = "github.com/singhp1069/spunky/x/spunky/types";
+
+
+message Scores {
+  uint64 id = 1;
+  string highscore = 2; 
+  string creator = 3;
+}

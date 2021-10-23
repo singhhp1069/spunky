@@ -1,0 +1,15 @@
+syntax = "proto3";
+package singhp1069.spunky.spunky;
+
+import "spunky/scores.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/singhp1069/spunky/x/spunky/types";
+
+// GenesisState defines the spunky module's genesis state.
+message GenesisState {
+  repeated Scores scoresList = 1 [(gogoproto.nullable) = false];
+  uint64 scoresCount = 2;
+  // this line is used by starport scaffolding # genesis/proto/state
+}
