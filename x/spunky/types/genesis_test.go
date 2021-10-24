@@ -21,9 +21,6 @@ func TestGenesisState_Validate(t *testing.T) {
 		{
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
-				Scoreboard: &types.Scoreboard{
-					Sore: "sore",
-				},
 				ScoresList: []types.Scores{
 					{
 						Id: 0,
@@ -33,6 +30,15 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				ScoresCount: 2,
+				NFTList: []types.NFT{
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				NFTCount: 2,
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -60,6 +66,32 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				ScoresCount: 0,
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated nFT",
+			genState: &types.GenesisState{
+				NFTList: []types.NFT{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "invalid nFT count",
+			genState: &types.GenesisState{
+				NFTList: []types.NFT{
+					{
+						Id: 1,
+					},
+				},
+				NFTCount: 0,
 			},
 			valid: false,
 		},

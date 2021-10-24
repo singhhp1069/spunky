@@ -2,6 +2,7 @@ syntax = "proto3";
 package singhp1069.spunky.spunky;
 
 import "spunky/scores.proto";
+import "spunky/nft.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 import "gogoproto/gogo.proto";
 
@@ -11,5 +12,7 @@ option go_package = "github.com/singhp1069/spunky/x/spunky/types";
 message GenesisState {
   repeated Scores scoresList = 1 [(gogoproto.nullable) = false];
   uint64 scoresCount = 2;
+  repeated NFT NFTList = 3 [(gogoproto.nullable) = false];
+  uint64 NFTCount = 4;
   // this line is used by starport scaffolding # genesis/proto/state
 }

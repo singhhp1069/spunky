@@ -25,3 +25,8 @@ const (
 	ScoresKey      = "Scores-value-"
 	ScoresCountKey = "Scores-count-"
 )
+
+const (
+	NFTKey      = "NFT-value-"
+	NFTCountKey = "NFT-count-"
+)

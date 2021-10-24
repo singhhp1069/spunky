@@ -2,6 +2,7 @@ syntax = "proto3";
 package singhp1069.spunky.spunky;
 
 import "spunky/scores.proto";
+import "spunky/nft.proto";
 // this line is used by starport scaffolding # proto/tx/import
 
 option go_package = "github.com/singhp1069/spunky/x/spunky/types";
@@ -10,6 +11,9 @@ option go_package = "github.com/singhp1069/spunky/x/spunky/types";
 service Msg {
   rpc CreateScores(MsgCreateScores) returns (MsgCreateScoresResponse);
   rpc UpdateScores(MsgUpdateScores) returns (MsgUpdateScoresResponse);
+  rpc CreateNFT(MsgCreateNFT) returns (MsgCreateNFTResponse);
+  rpc UpdateNFT(MsgUpdateNFT) returns (MsgUpdateNFTResponse);
+  rpc TransferNFT(MsgTransferNFT) returns (MsgTransferNFTResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -30,11 +34,41 @@ message MsgUpdateScores {
 
 message MsgUpdateScoresResponse {}
 
-message MsgDeleteScores {
+
+message MsgCreateNFT {
   string creator = 1;
-  uint64 id = 2;
+  string name = 2;
+  string symbol = 3;
+  string description = 4;
+  string uri = 5;
+  string uriHash = 6;
 }
 
-message MsgDeleteScoresResponse {}
+message MsgCreateNFTResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateNFT {
+  string creator = 1;
+  uint64 id = 2;
+  string name = 3;
+  string symbol = 4;
+  string description = 5;
+  string uri = 6;
+  string uriHash = 7;
+}
+
+message MsgUpdateNFTResponse {}
+
+
+message MsgTransferNFT {
+  string creator = 1;
+  string sender = 2;
+  string recipient = 3;
+  string nft = 4;
+}
+
+message MsgTransferNFTResponse {
+}
 
 // this line is used by starport scaffolding # proto/tx/message

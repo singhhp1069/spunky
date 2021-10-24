@@ -11,20 +11,24 @@ import (
 	"github.com/singhp1069/spunky/x/spunky/types"
 )
 
-func CmdCreateScores() *cobra.Command {
+func CmdCreateNFT() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-scores [highscore]",
-		Short: "Create a new scores",
-		Args:  cobra.ExactArgs(1),
+		Use:   "create-nft [name] [symbol] [description] [uri] [uri-hash]",
+		Short: "Create a new NFT",
+		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			argHighscore := args[0]
+			argName := args[0]
+			argSymbol := args[1]
+			argDescription := args[2]
+			argUri := args[3]
+			argUriHash := args[4]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgCreateScores(clientCtx.GetFromAddress().String(), argHighscore)
+			msg := types.NewMsgCreateNFT(clientCtx.GetFromAddress().String(), argName, argSymbol, argDescription, argUri, argUriHash)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -37,25 +41,33 @@ func CmdCreateScores() *cobra.Command {
 	return cmd
 }
 
-func CmdUpdateScores() *cobra.Command {
+func CmdUpdateNFT() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-scores [id] [highscore]",
-		Short: "Update a scores",
-		Args:  cobra.ExactArgs(2),
+		Use:   "update-nft [id] [name] [symbol] [description] [uri] [uri-hash]",
+		Short: "Update a NFT",
+		Args:  cobra.ExactArgs(6),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			id, err := strconv.ParseUint(args[0], 10, 64)
 			if err != nil {
 				return err
 			}
 
-			argHighscore := args[1]
+			argName := args[1]
+
+			argSymbol := args[2]
+
+			argDescription := args[3]
+
+			argUri := args[4]
+
+			argUriHash := args[5]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgUpdateScores(clientCtx.GetFromAddress().String(), id, argHighscore)
+			msg := types.NewMsgUpdateNFT(clientCtx.GetFromAddress().String(), id, argName, argSymbol, argDescription, argUri, argUriHash)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

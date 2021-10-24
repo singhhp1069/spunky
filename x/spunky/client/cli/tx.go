@@ -31,6 +31,9 @@ func GetTxCmd() *cobra.Command {
 
 	cmd.AddCommand(CmdCreateScores())
 	cmd.AddCommand(CmdUpdateScores())
+	cmd.AddCommand(CmdCreateNFT())
+	cmd.AddCommand(CmdUpdateNFT())
+	cmd.AddCommand(CmdTransferNFT())
 	// this line is used by starport scaffolding # 1
 
 	return cmd

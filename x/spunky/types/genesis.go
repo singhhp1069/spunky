@@ -11,6 +11,7 @@ const DefaultIndex uint64 = 1
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		ScoresList: []Scores{},
+		NFTList:    []NFT{},
 		// this line is used by starport scaffolding # genesis/types/default
 	}
 }
@@ -29,6 +30,18 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("scores id should be lower or equal than the last id")
 		}
 		scoresIdMap[elem.Id] = true
+	}
+	// Check for duplicated ID in nFT
+	nFTIdMap := make(map[uint64]bool)
+	nFTCount := gs.GetNFTCount()
+	for _, elem := range gs.NFTList {
+		if _, ok := nFTIdMap[elem.Id]; ok {
+			return fmt.Errorf("duplicated id for nFT")
+		}
+		if elem.Id >= nFTCount {
+			return fmt.Errorf("nFT id should be lower or equal than the last id")
+		}
+		nFTIdMap[elem.Id] = true
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

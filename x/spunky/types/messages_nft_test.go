@@ -8,21 +8,21 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestMsgCreateScores_ValidateBasic(t *testing.T) {
+func TestMsgCreateNFT_ValidateBasic(t *testing.T) {
 	tests := []struct {
 		name string
-		msg  MsgCreateScores
+		msg  MsgCreateNFT
 		err  error
 	}{
 		{
 			name: "invalid address",
-			msg: MsgCreateScores{
+			msg: MsgCreateNFT{
 				Creator: "invalid_address",
 			},
 			err: sdkerrors.ErrInvalidAddress,
 		}, {
 			name: "valid address",
-			msg: MsgCreateScores{
+			msg: MsgCreateNFT{
 				Creator: sample.AccAddress(),
 			},
 		},
@@ -39,21 +39,21 @@ func TestMsgCreateScores_ValidateBasic(t *testing.T) {
 	}
 }
 
-func TestMsgUpdateScores_ValidateBasic(t *testing.T) {
+func TestMsgUpdateNFT_ValidateBasic(t *testing.T) {
 	tests := []struct {
 		name string
-		msg  MsgUpdateScores
+		msg  MsgUpdateNFT
 		err  error
 	}{
 		{
 			name: "invalid address",
-			msg: MsgUpdateScores{
+			msg: MsgUpdateNFT{
 				Creator: "invalid_address",
 			},
 			err: sdkerrors.ErrInvalidAddress,
 		}, {
 			name: "valid address",
-			msg: MsgUpdateScores{
+			msg: MsgUpdateNFT{
 				Creator: sample.AccAddress(),
 			},
 		},

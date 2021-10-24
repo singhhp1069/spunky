@@ -1,0 +1,17 @@
+syntax = "proto3";
+package singhp1069.spunky.spunky;
+
+option go_package = "github.com/singhp1069/spunky/x/spunky/types";
+
+import "gogoproto/gogo.proto";
+
+
+message NFT {
+  uint64 id = 1;
+  string name = 2; 
+  string symbol = 3; 
+  string description = 4; 
+  string uri = 5; 
+  string uriHash = 6; 
+  string creator = 7;
+}
