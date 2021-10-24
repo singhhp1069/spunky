@@ -47,6 +47,8 @@ func (k msgServer) UpdateScores(goCtx context.Context, msg *types.MsgUpdateScore
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
+
+
 	k.SetScores(ctx, scores)
 
 	return &types.MsgUpdateScoresResponse{}, nil

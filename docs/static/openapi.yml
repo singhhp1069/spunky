@@ -12501,7 +12501,7 @@ paths:
                         }
       tags:
         - Query
-  /singhp1069/spunky/spunky/scores:
+  /spunky/scores:
     get:
       summary: Queries a list of scores items.
       operationId: Singhp1069SpunkySpunkyScoresAll
@@ -12624,7 +12624,7 @@ paths:
           type: boolean
       tags:
         - Query
-  '/singhp1069/spunky/spunky/scores/{id}':
+  '/spunky/scores/{id}':
     get:
       summary: Queries a scores by id.
       operationId: Singhp1069SpunkySpunkyScores

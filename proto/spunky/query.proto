@@ -13,12 +13,12 @@ option go_package = "github.com/singhp1069/spunky/x/spunky/types";
 service Query {
 // Queries a scores by id.
 	rpc Scores(QueryGetScoresRequest) returns (QueryGetScoresResponse) {
-		option (google.api.http).get = "/singhp1069/spunky/spunky/scores/{id}";
+		option (google.api.http).get = "/spunky/scores/{id}";
 	}
 
 	// Queries a list of scores items.
 	rpc ScoresAll(QueryAllScoresRequest) returns (QueryAllScoresResponse) {
-		option (google.api.http).get = "/singhp1069/spunky/spunky/scores";
+		option (google.api.http).get = "/spunky/scores";
 	}
 
 // this line is used by starport scaffolding # 2
