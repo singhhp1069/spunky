@@ -7,12 +7,11 @@ import (
 
 var _ sdk.Msg = &MsgTransferNFT{}
 
-func NewMsgTransferNFT(creator string, sender string, recipient string, nft string) *MsgTransferNFT {
+func NewMsgTransferNFT(creator string, recipient string, id uint64) *MsgTransferNFT {
 	return &MsgTransferNFT{
 		Creator:   creator,
-		Sender:    sender,
 		Recipient: recipient,
-		Nft:       nft,
+		Nft:       id,
 	}
 }
 

@@ -19,6 +19,7 @@ func (k msgServer) CreateNFT(goCtx context.Context, msg *types.MsgCreateNFT) (*t
 		Description: msg.Description,
 		Uri:         msg.Uri,
 		UriHash:     msg.UriHash,
+		Owner:       msg.Creator,
 	}
 
 	id := k.AppendNFT(
@@ -52,6 +53,11 @@ func (k msgServer) UpdateNFT(goCtx context.Context, msg *types.MsgUpdateNFT) (*t
 
 	// Checks if the msg creator is the same as the current owner
 	if msg.Creator != val.Creator {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+	}
+
+	// Cannot change the meta if you are not a owner
+	if msg.Creator != val.Owner {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 

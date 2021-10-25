@@ -63,9 +63,8 @@ message MsgUpdateNFTResponse {}
 
 message MsgTransferNFT {
   string creator = 1;
-  string sender = 2;
-  string recipient = 3;
-  string nft = 4;
+  string recipient = 2;
+  uint64 nft = 3;
 }
 
 message MsgTransferNFTResponse {

@@ -22,12 +22,12 @@ service Query {
 		option (google.api.http).get = "/spunky/scores";
 	}
 
-// Queries a nFT by id.
+// Queries a NFT by id.
 	rpc NFT(QueryGetNFTRequest) returns (QueryGetNFTResponse) {
 		option (google.api.http).get = "/spunky/NFT/{id}";
 	}
 
-	// Queries a list of nFT items.
+	// Queries a list of NFT items.
 	rpc NFTAll(QueryAllNFTRequest) returns (QueryAllNFTResponse) {
 		option (google.api.http).get = "/spunky/NFT";
 	}

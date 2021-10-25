@@ -14,4 +14,5 @@ message NFT {
   string uri = 5; 
   string uriHash = 6; 
   string creator = 7;
+  string owner = 8;
 }

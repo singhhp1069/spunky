@@ -465,9 +465,9 @@ type QueryClient interface {
 	Scores(ctx context.Context, in *QueryGetScoresRequest, opts ...grpc.CallOption) (*QueryGetScoresResponse, error)
 	// Queries a list of scores items.
 	ScoresAll(ctx context.Context, in *QueryAllScoresRequest, opts ...grpc.CallOption) (*QueryAllScoresResponse, error)
-	// Queries a nFT by id.
+	// Queries a NFT by id.
 	NFT(ctx context.Context, in *QueryGetNFTRequest, opts ...grpc.CallOption) (*QueryGetNFTResponse, error)
-	// Queries a list of nFT items.
+	// Queries a list of NFT items.
 	NFTAll(ctx context.Context, in *QueryAllNFTRequest, opts ...grpc.CallOption) (*QueryAllNFTResponse, error)
 }
 
@@ -521,9 +521,9 @@ type QueryServer interface {
 	Scores(context.Context, *QueryGetScoresRequest) (*QueryGetScoresResponse, error)
 	// Queries a list of scores items.
 	ScoresAll(context.Context, *QueryAllScoresRequest) (*QueryAllScoresResponse, error)
-	// Queries a nFT by id.
+	// Queries a NFT by id.
 	NFT(context.Context, *QueryGetNFTRequest) (*QueryGetNFTResponse, error)
-	// Queries a list of nFT items.
+	// Queries a list of NFT items.
 	NFTAll(context.Context, *QueryAllNFTRequest) (*QueryAllNFTResponse, error)
 }
 
