@@ -36,7 +36,7 @@ curl https://get.starport.network/singhp1069/spunky@latest! | sudo bash
   transfer-nft  Broadcast message transferNFT (transferring the ownership of the NFT)
   create-rewards Create a new Rewards (lock a balance to module with a milestone and first one to achieve the milestone can claim the reward)
   delete-rewards Delete a Rewards by id (creator can delete the reward only if it was not claimed and the balance will revert back to the creator)
-  claim-reward   Broadcast message ClaimReward (First user who achieve the milestone can claim, (hurry up to claim reward, if your milestone is achieve))
+  claim-reward   Broadcast message ClaimReward (First user who achieve the milestone can claim, (hurry up to claim reward, if your milestone is achieve), the reward will transfer from module to the claimer)
 ```
 
 

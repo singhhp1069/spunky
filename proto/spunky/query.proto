@@ -35,12 +35,12 @@ service Query {
 
 // Queries a rewards by id.
 	rpc Rewards(QueryGetRewardsRequest) returns (QueryGetRewardsResponse) {
-		option (google.api.http).get = "/singhp1069/spunky/spunky/rewards/{id}";
+		option (google.api.http).get = "/spunky/rewards/{id}";
 	}
 
 	// Queries a list of rewards items.
 	rpc RewardsAll(QueryAllRewardsRequest) returns (QueryAllRewardsResponse) {
-		option (google.api.http).get = "/singhp1069/spunky/spunky/rewards";
+		option (google.api.http).get = "/spunky/rewards";
 	}
 
 // this line is used by starport scaffolding # 2
