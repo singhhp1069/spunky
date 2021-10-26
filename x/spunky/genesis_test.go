@@ -29,6 +29,15 @@ func TestGenesis(t *testing.T) {
 			},
 		},
 		NFTCount: 2,
+		RewardsList: []types.Rewards{
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
+		},
+		RewardsCount: 2,
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -43,5 +52,8 @@ func TestGenesis(t *testing.T) {
 	require.Len(t, got.NFTList, len(genesisState.NFTList))
 	require.Subset(t, genesisState.NFTList, got.NFTList)
 	require.Equal(t, genesisState.NFTCount, got.NFTCount)
+	require.Len(t, got.RewardsList, len(genesisState.RewardsList))
+	require.Subset(t, genesisState.RewardsList, got.RewardsList)
+	require.Equal(t, genesisState.RewardsCount, got.RewardsCount)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

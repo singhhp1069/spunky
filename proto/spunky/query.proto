@@ -5,6 +5,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "spunky/scores.proto";
 import "spunky/nft.proto";
+import "spunky/rewards.proto";
 // this line is used by starport scaffolding # 1
 import "gogoproto/gogo.proto";
 
@@ -30,6 +31,16 @@ service Query {
 	// Queries a list of NFT items.
 	rpc NFTAll(QueryAllNFTRequest) returns (QueryAllNFTResponse) {
 		option (google.api.http).get = "/spunky/NFT";
+	}
+
+// Queries a rewards by id.
+	rpc Rewards(QueryGetRewardsRequest) returns (QueryGetRewardsResponse) {
+		option (google.api.http).get = "/singhp1069/spunky/spunky/rewards/{id}";
+	}
+
+	// Queries a list of rewards items.
+	rpc RewardsAll(QueryAllRewardsRequest) returns (QueryAllRewardsResponse) {
+		option (google.api.http).get = "/singhp1069/spunky/spunky/rewards";
 	}
 
 // this line is used by starport scaffolding # 2
@@ -66,6 +77,23 @@ message QueryAllNFTRequest {
 
 message QueryAllNFTResponse {
 	repeated NFT NFT = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetRewardsRequest {
+	uint64 id = 1;
+}
+
+message QueryGetRewardsResponse {
+	Rewards Rewards = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllRewardsRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllRewardsResponse {
+	repeated Rewards Rewards = 1 [(gogoproto.nullable) = false];
 	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

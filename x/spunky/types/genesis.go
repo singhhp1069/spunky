@@ -10,8 +10,9 @@ const DefaultIndex uint64 = 1
 // DefaultGenesis returns the default Capability genesis state
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
-		ScoresList: []Scores{},
-		NFTList:    []NFT{},
+		ScoresList:  []Scores{},
+		NFTList:     []NFT{},
+		RewardsList: []Rewards{},
 		// this line is used by starport scaffolding # genesis/types/default
 	}
 }
@@ -42,6 +43,18 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("nFT id should be lower or equal than the last id")
 		}
 		nFTIdMap[elem.Id] = true
+	}
+	// Check for duplicated ID in rewards
+	rewardsIdMap := make(map[uint64]bool)
+	rewardsCount := gs.GetRewardsCount()
+	for _, elem := range gs.RewardsList {
+		if _, ok := rewardsIdMap[elem.Id]; ok {
+			return fmt.Errorf("duplicated id for rewards")
+		}
+		if elem.Id >= rewardsCount {
+			return fmt.Errorf("rewards id should be lower or equal than the last id")
+		}
+		rewardsIdMap[elem.Id] = true
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

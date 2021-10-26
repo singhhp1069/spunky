@@ -30,3 +30,8 @@ const (
 	NFTKey      = "NFT-value-"
 	NFTCountKey = "NFT-count-"
 )
+
+const (
+	RewardsKey      = "Rewards-value-"
+	RewardsCountKey = "Rewards-count-"
+)

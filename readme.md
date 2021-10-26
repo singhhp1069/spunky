@@ -34,6 +34,9 @@ curl https://get.starport.network/singhp1069/spunky@latest! | sudo bash
   create-nft    Create a new NFT (create a new NFT)
   update-nft    Update a NFT (update the NFT metainfo only by the creator, If the ownership changed then creator can't update NFT)
   transfer-nft  Broadcast message transferNFT (transferring the ownership of the NFT)
+  create-rewards Create a new Rewards (lock a balance to module with a milestone and first one to achieve the milestone can claim the reward)
+  delete-rewards Delete a Rewards by id (creator can delete the reward only if it was not claimed and the balance will revert back to the creator)
+  claim-reward   Broadcast message ClaimReward (User can claim for reward if they are the first one to achieve the milestone)
 ```
 
 

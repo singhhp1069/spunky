@@ -348,6 +348,7 @@ func New(
 		appCodec,
 		keys[spunkymoduletypes.StoreKey],
 		keys[spunkymoduletypes.MemStoreKey],
+		app.BankKeeper,
 	)
 	spunkyModule := spunkymodule.NewAppModule(appCodec, app.SpunkyKeeper)
 

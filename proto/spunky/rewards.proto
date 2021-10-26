@@ -1,0 +1,16 @@
+syntax = "proto3";
+package singhp1069.spunky.spunky;
+
+option go_package = "github.com/singhp1069/spunky/x/spunky/types";
+
+import "gogoproto/gogo.proto";
+
+
+message Rewards {
+  uint64 id = 1;
+  string milestone = 2; 
+  string description = 3; 
+  string reward = 4; 
+  string spunker = 5; 
+  string creator = 6;
+}

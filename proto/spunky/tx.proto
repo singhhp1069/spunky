@@ -3,6 +3,7 @@ package singhp1069.spunky.spunky;
 
 import "spunky/scores.proto";
 import "spunky/nft.proto";
+import "spunky/rewards.proto";
 // this line is used by starport scaffolding # proto/tx/import
 
 option go_package = "github.com/singhp1069/spunky/x/spunky/types";
@@ -14,6 +15,9 @@ service Msg {
   rpc CreateNFT(MsgCreateNFT) returns (MsgCreateNFTResponse);
   rpc UpdateNFT(MsgUpdateNFT) returns (MsgUpdateNFTResponse);
   rpc TransferNFT(MsgTransferNFT) returns (MsgTransferNFTResponse);
+rpc CreateRewards(MsgCreateRewards) returns (MsgCreateRewardsResponse);
+  rpc DeleteRewards(MsgDeleteRewards) returns (MsgDeleteRewardsResponse);
+  rpc ClaimReward(MsgClaimReward) returns (MsgClaimRewardResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -68,6 +72,36 @@ message MsgTransferNFT {
 }
 
 message MsgTransferNFTResponse {
+}
+
+message MsgCreateRewards {
+  string creator = 1;
+  string milestone = 2;
+  string description = 3;
+  string reward = 4;
+  string spunker = 5;
+}
+
+message MsgCreateRewardsResponse {
+  uint64 id = 1;
+}
+
+
+
+
+message MsgDeleteRewards {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteRewardsResponse {}
+
+message MsgClaimReward {
+  string creator = 1;
+  string id = 2;
+}
+
+message MsgClaimRewardResponse {
 }
 
 // this line is used by starport scaffolding # proto/tx/message

@@ -3,6 +3,7 @@ package singhp1069.spunky.spunky;
 
 import "spunky/scores.proto";
 import "spunky/nft.proto";
+import "spunky/rewards.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 import "gogoproto/gogo.proto";
 
@@ -14,5 +15,7 @@ message GenesisState {
   uint64 scoresCount = 2;
   repeated NFT NFTList = 3 [(gogoproto.nullable) = false];
   uint64 NFTCount = 4;
+  repeated Rewards rewardsList = 5 [(gogoproto.nullable) = false];
+  uint64 rewardsCount = 6;
   // this line is used by starport scaffolding # genesis/proto/state
 }
