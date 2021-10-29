@@ -22,7 +22,7 @@ func (k msgServer) CreateRewards(goCtx context.Context, msg *types.MsgCreateRewa
 	}
 
 	// convert the message creator address from a string into sdk.AccAddress
-	spunkyReward, err := sdk.AccAddressFromBech32(msg.Creator)
+	creatorAddress, err := sdk.AccAddressFromBech32(msg.Creator)
 	if err != nil {
 		panic(err)
 	}
@@ -36,7 +36,7 @@ func (k msgServer) CreateRewards(goCtx context.Context, msg *types.MsgCreateRewa
 		panic(err)
 	}
 	// send tokens from the scavenge creator to the module account
-	sdkError := k.bankKeeper.SendCoins(ctx, spunkyReward, moduleAcct, reward)
+	sdkError := k.bankKeeper.SendCoins(ctx, creatorAddress, moduleAcct, reward)
 	if sdkError != nil {
 		return nil, sdkError
 	}
