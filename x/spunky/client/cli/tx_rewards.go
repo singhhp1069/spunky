@@ -13,15 +13,14 @@ import (
 
 func CmdCreateRewards() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-rewards [milestone] [description] [reward] [spunker]",
+		Use:   "create-rewards [milestone] [reward] [description]",
 		Short: "Create a new Rewards",
-		Args:  cobra.ExactArgs(4),
+		Args:  cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			argMilestone := args[0]
-			argDescription := args[1]
-			argReward := args[2]
-			argSpunker := args[3]
-
+			argReward := args[1]
+			argDescription := args[2]
+			argSpunker := ""
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err

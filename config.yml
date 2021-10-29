@@ -1,14 +1,30 @@
+genesis:
+  chain_id: "spunky"
+  app_state:
+    staking:
+      params:
+        bond_denom: "uspunk"
 accounts:
   - name: alice
-    coins: ["20000token", "200000000stake"]
-  - name: bob
-    coins: ["10000token", "100000000stake"]
+    coins: ["100000000000uspunk"]
+  - name: preet
+    coins: ["100000000000uspunk"]
+  - name: ali
+    coins: ["100000000000uspunk"]
+  - name: sonia
+    coins: ["100000000000uspunk"]
+  - name: berry
+    coins: ["100000000000uspunk"]
+  - name: tobias
+    coins: ["100000000000uspunk"]
+  - name: dennis
+    coins: ["100000000000uspunk"]
 validator:
   name: alice
-  staked: "100000000stake"
+  staked: "50000000000uspunk"
 client:
   openapi:
     path: "docs/static/openapi.yml"
 faucet:
-  name: bob
-  coins: ["5token", "100000stake"]
+  name: alice
+  coins: ["1000000000uspunk"]

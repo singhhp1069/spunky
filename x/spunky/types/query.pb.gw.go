@@ -620,9 +620,9 @@ var (
 
 	pattern_Query_NFTAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"spunky", "NFT"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_Rewards_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"singhp1069", "spunky", "rewards", "id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_Rewards_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"spunky", "rewards", "id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_RewardsAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2}, []string{"singhp1069", "spunky", "rewards"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_RewardsAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"spunky", "rewards"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
